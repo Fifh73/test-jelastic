@@ -3,138 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palette Moderne Rouge & Colorée</title>
+  <title>FuturTech - Bienvenue</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #ff4e50 0%, #f9d423 100%);
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f7f8fa;
+      color: #222;
       min-height: 100vh;
-      color: #fff;
+      overflow-x: hidden;
     }
     header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg, #e0e7ef 0%, #f7f8fa 100%);
+      position: relative;
       text-align: center;
-      padding: 2rem 1rem 1rem 1rem;
     }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
     }
-    .gallery {
+    .subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2.2rem;
+    }
+    .cta {
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 12px #e0e7ef;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta:hover {
+      background: #007aff;
+      transform: translateY(-2px) scale(1.04);
+    }
+    section {
+      padding: 4rem 1rem 2.5rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .features {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 2rem;
-      padding: 2rem 1rem;
+      justify-content: center;
     }
-    .card {
-      background: rgba(255,255,255,0.08);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    .feature {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #e0e7ef;
+      width: 300px;
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      text-align: left;
+      position: relative;
       overflow: hidden;
-      width: 320px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      transition: opacity 0.6s cubic-bezier(.4,2,.6,1), transform 0.6s cubic-bezier(.4,2,.6,1);
     }
-    .card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    .feature.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1.01);
     }
-    .card img {
+    .feature img {
       width: 100%;
-      height: 200px;
+      height: 140px;
       object-fit: cover;
-      display: block;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 8px #e0e7ef;
     }
-    .card-content {
-      padding: 1.2rem;
+    .feature h2 {
+      color: #007aff;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
-    .color-bar {
+    .feature p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #007aff;
+      border-radius: 2px;
+      margin: 2rem auto 2.5rem auto;
+      opacity: 0.15;
+    }
+    .about {
       display: flex;
-      gap: 8px;
-      margin-top: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
     }
-    .color {
-      flex: 1;
-      height: 18px;
-      border-radius: 8px;
+    .about img {
+      width: 300px;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px #e0e7ef;
     }
-    .color.red { background: #ff4e50; }
-    .color.orange { background: #ff944e; }
-    .color.pink { background: #ff4ecb; }
-    .color.yellow { background: #ffe14e; }
-    .color.blue { background: #4ecbff; }
-    .color.green { background: #4effa1; }
-    @media (max-width: 700px) {
-      .gallery { flex-direction: column; align-items: center; }
-      .card { width: 95vw; }
+    .about-text {
+      max-width: 480px;
+    }
+    .about-text h2 {
+      color: #007aff;
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .about-text p {
+      color: #444;
+      font-size: 1.05rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      color: #888;
+      font-size: 1rem;
+      background: #f7f8fa;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 900px) {
+      .features { flex-direction: column; align-items: center; }
+      .about { flex-direction: column; }
+      .about img { width: 95vw; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Palette Moderne : Rouge & Couleurs Vives</h1>
-    <p>Découvrez une sélection d'images et de couleurs modernes, dominées par le rouge et des teintes éclatantes.</p>
+    <h1>FuturTech</h1>
+    <div class="subtitle">Bienvenue dans le futur de la technologie</div>
+    <button class="cta" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">Découvrir</button>
   </header>
-  <section class="gallery">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Rouge Moderne">
-      <div class="card-content">
-        <h2>Rouge Passion</h2>
-        <p>Un rouge vibrant, parfait pour dynamiser vos créations.</p>
-        <div class="color-bar">
-          <div class="color red"></div>
-          <div class="color orange"></div>
-          <div class="color yellow"></div>
-        </div>
+  <section>
+    <div class="divider"></div>
+    <div class="features">
+      <div class="feature">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="IA Futuriste">
+        <h2>Intelligence Artificielle</h2>
+        <p>Des solutions IA avancées pour automatiser, prédire et innover dans tous les secteurs.</p>
       </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Palette Colorée">
-      <div class="card-content">
-        <h2>Explosion de Couleurs</h2>
-        <p>Des nuances vives et modernes pour une ambiance joyeuse.</p>
-        <div class="color-bar">
-          <div class="color pink"></div>
-          <div class="color blue"></div>
-          <div class="color green"></div>
-        </div>
+      <div class="feature">
+        <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="Réalité Augmentée">
+        <h2>Réalité Augmentée</h2>
+        <p>Plongez dans des expériences immersives grâce à la réalité augmentée et virtuelle.</p>
       </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Dégradé Moderne">
-      <div class="card-content">
-        <h2>Dégradé Moderne</h2>
-        <p>Un mélange subtil de couleurs chaudes et froides, très tendance.</p>
-        <div class="color-bar">
-          <div class="color red"></div>
-          <div class="color pink"></div>
-          <div class="color blue"></div>
-        </div>
+      <div class="feature">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Objets Connectés">
+        <h2>Objets Connectés</h2>
+        <p>Connectez votre monde avec des objets intelligents et des interfaces intuitives.</p>
+      </div>
+      <div class="feature">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Cloud & Sécurité">
+        <h2>Cloud & Sécurité</h2>
+        <p>Des infrastructures cloud robustes et une cybersécurité de pointe pour vos données.</p>
       </div>
     </div>
   </section>
+  <section>
+    <div class="divider"></div>
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="FuturTech About">
+      <div class="about-text">
+        <h2>Notre Vision</h2>
+        <p>Chez FuturTech, nous croyons que la technologie doit être accessible, innovante et éthique. Notre mission est de propulser les entreprises et les individus vers un avenir connecté, intelligent et durable. Rejoignez-nous pour façonner le monde de demain !</p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 FuturTech. Tous droits réservés.
+  </footer>
   <script>
-    // Animation simple au scroll
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.card');
-      function revealOnScroll() {
-        const windowHeight = window.innerHeight;
-        cards.forEach(card => {
-          const cardTop = card.getBoundingClientRect().top;
-          if(cardTop < windowHeight - 60) {
-            card.style.opacity = 1;
-            card.style.transform = 'translateY(0) scale(1.03)';
-          } else {
-            card.style.opacity = 0.7;
-            card.style.transform = 'translateY(40px) scale(1)';
-          }
-        });
-      }
-      window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll();
-    });
+    // Effet d'apparition au scroll pour les features
+    function revealOnScroll() {
+      const features = document.querySelectorAll('.feature');
+      const windowHeight = window.innerHeight;
+      features.forEach(feature => {
+        const top = feature.getBoundingClientRect().top;
+        if(top < windowHeight - 60) {
+          feature.classList.add('visible');
+        } else {
+          feature.classList.remove('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
   </script>
 </body>
 </html>
