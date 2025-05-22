@@ -5,208 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FuturTech - Bienvenue</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+    
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --text: #1f2937;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background: #f7f8fa;
-      color: #222;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
+      line-height: 1.6;
     }
+
     header {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(120deg, #e0e7ef 0%, #f7f8fa 100%);
+      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 50%, #f8fafc 100%);
       position: relative;
       text-align: center;
+      padding: 2rem;
     }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
     h1 {
-      font-size: 2.7rem;
+      font-size: 4rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
+      letter-spacing: -0.05em;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
     .subtitle {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 2.2rem;
+      font-size: 1.5rem;
+      color: #4b5563;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      font-weight: 500;
     }
+
     .cta {
-      background: #222;
-      color: #fff;
+      background: var(--primary);
+      color: white;
       border: none;
-      border-radius: 24px;
-      padding: 0.9rem 2.2rem;
-      font-size: 1.1rem;
-      font-weight: 700;
+      border-radius: 9999px;
+      padding: 1rem 2.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 2px 12px #e0e7ef;
-      transition: background 0.2s, transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.5);
     }
+
     .cta:hover {
-      background: #007aff;
-      transform: translateY(-2px) scale(1.04);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.6);
+      background: var(--secondary);
     }
+
     section {
-      padding: 4rem 1rem 2.5rem 1rem;
-      max-width: 1100px;
+      padding: 6rem 2rem;
+      max-width: 1200px;
       margin: 0 auto;
     }
+
     .features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
     }
+
     .feature {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 16px #e0e7ef;
-      width: 300px;
-      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-      text-align: left;
-      position: relative;
+      background: var(--card-bg);
+      border-radius: 1rem;
       overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
       opacity: 0;
-      transform: translateY(40px) scale(0.98);
-      transition: opacity 0.6s cubic-bezier(.4,2,.6,1), transform 0.6s cubic-bezier(.4,2,.6,1);
+      transform: translateY(30px);
     }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
     .feature.visible {
       opacity: 1;
-      transform: translateY(0) scale(1.01);
+      transform: translateY(0);
     }
+
     .feature img {
       width: 100%;
-      height: 140px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      box-shadow: 0 1px 8px #e0e7ef;
+      transition: transform 0.3s ease;
     }
+
+    .feature:hover img {
+      transform: scale(1.05);
+    }
+
+    .feature-content {
+      padding: 1.5rem;
+    }
+
     .feature h2 {
-      color: #007aff;
-      font-size: 1.15rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
     }
+
     .feature p {
-      color: #444;
+      color: #4b5563;
       font-size: 1rem;
-      margin-bottom: 0.3rem;
+      line-height: 1.6;
     }
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: #007aff;
-      border-radius: 2px;
-      margin: 2rem auto 2.5rem auto;
-      opacity: 0.15;
-    }
+
     .about {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 4rem;
       align-items: center;
-      gap: 2rem;
-      justify-content: center;
     }
+
     .about img {
-      width: 300px;
-      border-radius: 14px;
-      box-shadow: 0 2px 16px #e0e7ef;
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
-    .about-text {
-      max-width: 480px;
+
+    .about img:hover {
+      transform: scale(1.02);
     }
+
     .about-text h2 {
-      color: #007aff;
-      font-size: 1.2rem;
-      margin-bottom: 0.7rem;
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       font-weight: 700;
     }
+
     .about-text p {
-      color: #444;
-      font-size: 1.05rem;
+      color: #4b5563;
+      font-size: 1.125rem;
+      line-height: 1.8;
     }
+
     footer {
       text-align: center;
-      padding: 2rem 1rem 1rem 1rem;
-      color: #888;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+      color: #4b5563;
       font-size: 1rem;
-      background: #f7f8fa;
-      letter-spacing: 1px;
     }
-    @media (max-width: 900px) {
-      .features { flex-direction: column; align-items: center; }
-      .about { flex-direction: column; }
-      .about img { width: 95vw; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 3rem; }
+      .subtitle { font-size: 1.25rem; }
+      section { padding: 4rem 1.5rem; }
+      .features { gap: 2rem; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>FuturTech</h1>
-    <div class="subtitle">Bienvenue dans le futur de la technologie</div>
-    <button class="cta" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">Découvrir</button>
+    <div class="subtitle">Découvrez l'avenir de la technologie avec des solutions innovantes qui transforment le monde</div>
+    <button class="cta" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'});">Explorer</button>
   </header>
   <section>
-    <div class="divider"></div>
     <div class="features">
       <div class="feature">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="IA Futuriste">
-        <h2>Intelligence Artificielle</h2>
-        <p>Des solutions IA avancées pour automatiser, prédire et innover dans tous les secteurs.</p>
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="IA Futuriste">
+        <div class="feature-content">
+          <h2>Intelligence Artificielle</h2>
+          <p>Explorez les possibilités infinies de l'IA avec nos solutions sur mesure pour votre entreprise.</p>
+        </div>
       </div>
       <div class="feature">
-        <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="Réalité Augmentée">
-        <h2>Réalité Augmentée</h2>
-        <p>Plongez dans des expériences immersives grâce à la réalité augmentée et virtuelle.</p>
+        <img src="https://images.unsplash.com/photo-1614066837363-a51fa08a0ae4?auto=format&fit=crop&w=600&q=80" alt="Réalité Augmentée">
+        <div class="feature-content">
+          <h2>Réalité Augmentée</h2>
+          <p>Transformez votre perception du monde avec nos technologies immersives de pointe.</p>
+        </div>
       </div>
       <div class="feature">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Objets Connectés">
-        <h2>Objets Connectés</h2>
-        <p>Connectez votre monde avec des objets intelligents et des interfaces intuitives.</p>
-      </div>
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Cloud & Sécurité">
-        <h2>Cloud & Sécurité</h2>
-        <p>Des infrastructures cloud robustes et une cybersécurité de pointe pour vos données.</p>
+        <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=600&q=80" alt="Objets Connectés">
+        <div class="feature-content">
+          <h2>Objets Connectés</h2>
+          <p>Créez un écosystème intelligent avec nos solutions IoT innovantes.</p>
+        </div>
       </div>
     </div>
   </section>
   <section>
-    <div class="divider"></div>
     <div class="about">
-      <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="FuturTech About">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="FuturTech Vision">
       <div class="about-text">
         <h2>Notre Vision</h2>
-        <p>Chez FuturTech, nous croyons que la technologie doit être accessible, innovante et éthique. Notre mission est de propulser les entreprises et les individus vers un avenir connecté, intelligent et durable. Rejoignez-nous pour façonner le monde de demain !</p>
+        <p>Chez FuturTech, nous imaginons un avenir où la technologie améliore la vie de chacun. Notre engagement est de créer des solutions innovantes et accessibles qui répondent aux défis de demain. Rejoignez-nous dans cette aventure vers un futur plus intelligent et durable.</p>
       </div>
     </div>
   </section>
   <footer>
-    &copy; 2025 FuturTech. Tous droits réservés.
+    &copy; 2024 FuturTech. Tous droits réservés.
   </footer>
   <script>
-    // Effet d'apparition au scroll pour les features
-    function revealOnScroll() {
-      const features = document.querySelectorAll('.feature');
-      const windowHeight = window.innerHeight;
-      features.forEach(feature => {
-        const top = feature.getBoundingClientRect().top;
-        if(top < windowHeight - 60) {
-          feature.classList.add('visible');
-        } else {
-          feature.classList.remove('visible');
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
+    }, observerOptions);
+
+    document.querySelectorAll('.feature').forEach(feature => {
+      observer.observe(feature);
+    });
+
+    // Effet de parallaxe subtil sur le header
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      document.querySelector('header').style.backgroundPositionY = scrolled * 0.5 + 'px';
+    });
   </script>
 </body>
 </html>
