@@ -390,6 +390,27 @@
         overflow-x: auto;
       }
     }
+
+    /* Tab Content Styles */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -399,31 +420,31 @@
       <span>CloudControl</span>
     </div>
     <nav>
-      <a href="#" class="nav-item active">
+      <a href="#" class="nav-item active" data-tab="dashboard">
         <i class="ri-dashboard-line"></i>
         <span>Dashboard</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" data-tab="vms">
         <i class="ri-computer-line"></i>
         <span>Machines Virtuelles</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" data-tab="containers">
         <i class="ri-box-3-line"></i>
         <span>Containers</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" data-tab="storage">
         <i class="ri-hard-drive-line"></i>
         <span>Stockage</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" data-tab="network">
         <i class="ri-router-line"></i>
         <span>Réseau</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" data-tab="security">
         <i class="ri-shield-line"></i>
         <span>Sécurité</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" data-tab="settings">
         <i class="ri-settings-line"></i>
         <span>Paramètres</span>
       </a>
@@ -438,70 +459,194 @@
       </button>
     </div>
 
-    <div class="dashboard-grid">
-      <div class="stat-card">
-        <h3>CPU Usage</h3>
-        <div class="stat-value">45%</div>
+    <!-- Conteneurs pour chaque section -->
+    <div id="dashboard-content" class="tab-content active">
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <h3>CPU Usage</h3>
+          <div class="stat-value">45%</div>
+        </div>
+        <div class="stat-card">
+          <h3>Memory Usage</h3>
+          <div class="stat-value">12.4 GB</div>
+        </div>
+        <div class="stat-card">
+          <h3>Storage Usage</h3>
+          <div class="stat-value">234 GB</div>
+        </div>
+        <div class="stat-card">
+          <h3>Network I/O</h3>
+          <div class="stat-value">1.2 GB/s</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <h3>Memory Usage</h3>
-        <div class="stat-value">12.4 GB</div>
-      </div>
-      <div class="stat-card">
-        <h3>Storage Usage</h3>
-        <div class="stat-value">234 GB</div>
-      </div>
-      <div class="stat-card">
-        <h3>Network I/O</h3>
-        <div class="stat-value">1.2 GB/s</div>
+      <div class="resource-list">
+        <div class="resource-header">
+          <h2 class="resource-title">Machines Virtuelles</h2>
+          <button class="create-btn" onclick="showModal('createVM')">
+            <i class="ri-add-line"></i> Nouvelle VM
+          </button>
+        </div>
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Status</th>
+              <th>CPU</th>
+              <th>RAM</th>
+              <th>Stockage</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>vm-prod-01</td>
+              <td><span class="status-badge status-running">Running</span></td>
+              <td>4 vCPU</td>
+              <td>8 GB</td>
+              <td>120 GB</td>
+              <td>
+                <button class="action-btn"><i class="ri-play-line"></i></button>
+                <button class="action-btn"><i class="ri-restart-line"></i></button>
+                <button class="action-btn"><i class="ri-settings-3-line"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>vm-dev-02</td>
+              <td><span class="status-badge status-stopped">Stopped</span></td>
+              <td>2 vCPU</td>
+              <td>4 GB</td>
+              <td>80 GB</td>
+              <td>
+                <button class="action-btn"><i class="ri-play-line"></i></button>
+                <button class="action-btn"><i class="ri-restart-line"></i></button>
+                <button class="action-btn"><i class="ri-settings-3-line"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <div class="resource-list">
-      <div class="resource-header">
-        <h2 class="resource-title">Machines Virtuelles</h2>
-        <button class="create-btn" onclick="showModal('createVM')">
-          <i class="ri-add-line"></i> Nouvelle VM
-        </button>
+    <div id="vms-content" class="tab-content">
+      <div class="resource-list">
+        <div class="resource-header">
+          <h2 class="resource-title">Machines Virtuelles</h2>
+          <button class="create-btn" onclick="showModal('createVM')">
+            <i class="ri-add-line"></i> Nouvelle VM
+          </button>
+        </div>
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Status</th>
+              <th>CPU</th>
+              <th>RAM</th>
+              <th>Stockage</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>vm-prod-01</td>
+              <td><span class="status-badge status-running">Running</span></td>
+              <td>4 vCPU</td>
+              <td>8 GB</td>
+              <td>120 GB</td>
+              <td>
+                <button class="action-btn"><i class="ri-play-line"></i></button>
+                <button class="action-btn"><i class="ri-restart-line"></i></button>
+                <button class="action-btn"><i class="ri-settings-3-line"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>vm-dev-02</td>
+              <td><span class="status-badge status-stopped">Stopped</span></td>
+              <td>2 vCPU</td>
+              <td>4 GB</td>
+              <td>80 GB</td>
+              <td>
+                <button class="action-btn"><i class="ri-play-line"></i></button>
+                <button class="action-btn"><i class="ri-restart-line"></i></button>
+                <button class="action-btn"><i class="ri-settings-3-line"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="resource-table">
-        <thead>
-          <tr>
-            <th>Nom</th>
-            <th>Status</th>
-            <th>CPU</th>
-            <th>RAM</th>
-            <th>Stockage</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>vm-prod-01</td>
-            <td><span class="status-badge status-running">Running</span></td>
-            <td>4 vCPU</td>
-            <td>8 GB</td>
-            <td>120 GB</td>
-            <td>
-              <button class="action-btn"><i class="ri-play-line"></i></button>
-              <button class="action-btn"><i class="ri-restart-line"></i></button>
-              <button class="action-btn"><i class="ri-settings-3-line"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>vm-dev-02</td>
-            <td><span class="status-badge status-stopped">Stopped</span></td>
-            <td>2 vCPU</td>
-            <td>4 GB</td>
-            <td>80 GB</td>
-            <td>
-              <button class="action-btn"><i class="ri-play-line"></i></button>
-              <button class="action-btn"><i class="ri-restart-line"></i></button>
-              <button class="action-btn"><i class="ri-settings-3-line"></i></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    </div>
+
+    <div id="containers-content" class="tab-content">
+      <div class="resource-list">
+        <div class="resource-header">
+          <h2 class="resource-title">Containers</h2>
+          <button class="create-btn" onclick="showModal('createContainer')">
+            <i class="ri-add-line"></i> Nouveau Container
+          </button>
+        </div>
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Status</th>
+              <th>Image</th>
+              <th>CPU</th>
+              <th>RAM</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>container-web-01</td>
+              <td><span class="status-badge status-running">Running</span></td>
+              <td>nginx:latest</td>
+              <td>2 cores</td>
+              <td>2 GB</td>
+              <td>
+                <button class="action-btn"><i class="ri-play-line"></i></button>
+                <button class="action-btn"><i class="ri-restart-line"></i></button>
+                <button class="action-btn"><i class="ri-settings-3-line"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="storage-content" class="tab-content">
+      <div class="resource-list">
+        <div class="resource-header">
+          <h2 class="resource-title">Stockage</h2>
+          <button class="create-btn">
+            <i class="ri-add-line"></i> Nouveau Volume
+          </button>
+        </div>
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Type</th>
+              <th>Capacité</th>
+              <th>Utilisé</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>local-lvm</td>
+              <td>LVM-Thin</td>
+              <td>500 GB</td>
+              <td>234 GB</td>
+              <td><span class="status-badge status-running">Active</span></td>
+              <td>
+                <button class="action-btn"><i class="ri-edit-line"></i></button>
+                <button class="action-btn"><i class="ri-delete-bin-line"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Create VM Modal -->
@@ -562,6 +707,45 @@
   </main>
 
   <script>
+    // Navigation Active State and Tab Switching
+    const navItems = document.querySelectorAll('.nav-item');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    function switchTab(tabId) {
+      // Hide all tab contents
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active class from all nav items
+      navItems.forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Show selected tab content
+      const selectedTab = document.getElementById(tabId + '-content');
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      // Add active class to selected nav item
+      const selectedNavItem = document.querySelector(`[data-tab="${tabId}"]`);
+      if (selectedNavItem) {
+        selectedNavItem.classList.add('active');
+      }
+    }
+
+    // Add click handlers to nav items
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tabId = item.getAttribute('data-tab');
+        if (tabId) {
+          switchTab(tabId);
+        }
+      });
+    });
+
     // Theme Toggle
     function toggleTheme() {
       const body = document.body;
@@ -596,15 +780,6 @@
         event.target.style.display = 'none';
       }
     }
-
-    // Navigation Active State
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navItems.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-      });
-    });
   </script>
 </body>
 </html>
