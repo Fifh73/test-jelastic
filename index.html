@@ -948,6 +948,250 @@
     .mobile-overlay.active {
       display: block;
     }
+
+    /* Styles pour les nouvelles sections de sécurité */
+    .stat-trend {
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .stat-trend.positive {
+      color: var(--success-color);
+    }
+
+    .stat-trend.negative {
+      color: var(--danger-color);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .alerts-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 0.5rem;
+      border-left: 4px solid;
+    }
+
+    .alert-item.critical {
+      border-left-color: var(--danger-color);
+    }
+
+    .alert-item.warning {
+      border-left-color: var(--warning-color);
+    }
+
+    .alert-icon {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    .alert-content h4 {
+      margin: 0 0 0.5rem 0;
+      color: var(--text-primary);
+    }
+
+    .alert-content p {
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    .alert-meta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .alert-severity {
+      font-weight: 500;
+    }
+
+    .security-scan-results {
+      padding: 1rem;
+    }
+
+    .scan-category {
+      background: var(--bg-secondary);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .scan-category h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 1rem 0;
+    }
+
+    .score-badge {
+      margin-left: auto;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .score-badge.good {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--success-color);
+    }
+
+    .score-badge.warning {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--warning-color);
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+    }
+
+    .check-item.success i {
+      color: var(--success-color);
+    }
+
+    .check-item.warning i {
+      color: var(--warning-color);
+    }
+
+    .check-item.error i {
+      color: var(--danger-color);
+    }
+
+    .security-settings {
+      padding: 1rem;
+    }
+
+    .setting-group {
+      background: var(--bg-secondary);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .setting-group h3 {
+      margin: 0 0 1rem 0;
+    }
+
+    .setting-item {
+      margin-bottom: 1rem;
+    }
+
+    .setting-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .setting-value {
+      color: var(--text-secondary);
+    }
+
+    .setting-slider {
+      width: 100%;
+      height: 0.5rem;
+      border-radius: 0.25rem;
+      background: var(--bg-tertiary);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .setting-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      cursor: pointer;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .header-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .filter-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .alert-item {
+        flex-direction: column;
+      }
+
+      .alert-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 0.5rem;
+      }
+
+      .setting-group {
+        padding: 1rem;
+      }
+
+      .checkbox-group {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1220,138 +1464,197 @@
         <div class="stat-card">
           <h3>Menaces Bloquées (24h)</h3>
           <div class="stat-value">247</div>
+          <div class="stat-trend positive">
+            <i class="ri-arrow-up-line"></i> +12% vs hier
+          </div>
         </div>
         <div class="stat-card">
-          <h3>Dernière Analyse</h3>
+          <h3>Score de Sécurité</h3>
+          <div class="stat-value">85%</div>
+          <div class="stat-trend negative">
+            <i class="ri-arrow-down-line"></i> -3% cette semaine
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3>Vulnérabilités Critiques</h3>
+          <div class="stat-value">2</div>
+          <div class="stat-badge status-danger">Action requise</div>
+        </div>
+        <div class="stat-card">
+          <h3>Dernière Sauvegarde</h3>
           <div class="stat-value">Il y a 2h</div>
-        </div>
-        <div class="stat-card">
-          <h3>Règles Actives</h3>
-          <div class="stat-value">24</div>
-        </div>
-        <div class="stat-card">
-          <h3>Niveau de Sécurité</h3>
-          <div class="stat-value">Élevé</div>
+          <div class="stat-badge status-running">À jour</div>
         </div>
       </div>
 
-      <!-- Firewall Section -->
+      <!-- Section Alertes de Sécurité -->
       <div class="resource-list">
         <div class="resource-header">
-          <h2 class="resource-title">Pare-feu</h2>
-          <button class="create-btn" onclick="showModal('createFirewallRule')">
-            <i class="ri-add-line"></i> Nouvelle Règle
-          </button>
+          <h2 class="resource-title">Alertes de Sécurité Récentes</h2>
+          <div class="header-actions">
+            <button class="filter-btn">
+              <i class="ri-filter-3-line"></i> Filtrer
+            </button>
+            <button class="create-btn">
+              <i class="ri-notification-line"></i> Configurer les alertes
+            </button>
+          </div>
         </div>
-        <table class="resource-table">
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Type</th>
-              <th>Port</th>
-              <th>Source</th>
-              <th>Action</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>HTTP Access</td>
-              <td>TCP</td>
-              <td>80, 443</td>
-              <td>0.0.0.0/0</td>
-              <td>ACCEPT</td>
-              <td><span class="status-badge status-running">Actif</span></td>
-              <td>
-                <button class="action-btn"><i class="ri-edit-line"></i></button>
-                <button class="action-btn"><i class="ri-delete-bin-line"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td>Block Telnet</td>
-              <td>TCP</td>
-              <td>23</td>
-              <td>0.0.0.0/0</td>
-              <td>DROP</td>
-              <td><span class="status-badge status-running">Actif</span></td>
-              <td>
-                <button class="action-btn"><i class="ri-edit-line"></i></button>
-                <button class="action-btn"><i class="ri-delete-bin-line"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="alerts-container">
+          <div class="alert-item critical">
+            <div class="alert-icon">
+              <i class="ri-error-warning-line"></i>
+            </div>
+            <div class="alert-content">
+              <h4>Tentative d'intrusion détectée</h4>
+              <p>Multiple tentatives de connexion SSH depuis l'IP 192.168.1.45</p>
+              <div class="alert-meta">
+                <span class="alert-time">Il y a 15 min</span>
+                <span class="alert-severity">Critique</span>
+              </div>
+            </div>
+            <div class="alert-actions">
+              <button class="action-btn" data-tooltip="Bloquer IP">
+                <i class="ri-shield-flash-line"></i>
+              </button>
+              <button class="action-btn" data-tooltip="Détails">
+                <i class="ri-file-list-3-line"></i>
+              </button>
+            </div>
+          </div>
+          <div class="alert-item warning">
+            <div class="alert-icon">
+              <i class="ri-alert-line"></i>
+            </div>
+            <div class="alert-content">
+              <h4>Certificat SSL expirant</h4>
+              <p>Le certificat pour domain.com expire dans 7 jours</p>
+              <div class="alert-meta">
+                <span class="alert-time">Il y a 2h</span>
+                <span class="alert-severity">Avertissement</span>
+              </div>
+            </div>
+            <div class="alert-actions">
+              <button class="action-btn" data-tooltip="Renouveler">
+                <i class="ri-refresh-line"></i>
+              </button>
+              <button class="action-btn" data-tooltip="Détails">
+                <i class="ri-file-list-3-line"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Security Groups -->
-      <div class="resource-list mt-4">
+      <!-- Section Analyse de Sécurité -->
+      <div class="resource-list">
         <div class="resource-header">
-          <h2 class="resource-title">Groupes de Sécurité</h2>
-          <button class="create-btn" onclick="showModal('createSecurityGroup')">
-            <i class="ri-add-line"></i> Nouveau Groupe
+          <h2 class="resource-title">Analyse de Sécurité</h2>
+          <button class="create-btn">
+            <i class="ri-scan-line"></i> Lancer une analyse
           </button>
         </div>
-        <table class="resource-table">
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Description</th>
-              <th>VMs Associées</th>
-              <th>Règles</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>web-servers</td>
-              <td>Règles pour serveurs web</td>
-              <td>3</td>
-              <td>5 règles</td>
-              <td><span class="status-badge status-running">Actif</span></td>
-              <td>
-                <button class="action-btn"><i class="ri-edit-line"></i></button>
-                <button class="action-btn"><i class="ri-delete-bin-line"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="security-scan-results">
+          <div class="scan-category">
+            <h3>
+              <i class="ri-lock-line"></i>
+              Authentification
+              <span class="score-badge good">95%</span>
+            </h3>
+            <ul class="check-list">
+              <li class="check-item success">
+                <i class="ri-checkbox-circle-line"></i>
+                2FA activé pour tous les utilisateurs
+              </li>
+              <li class="check-item success">
+                <i class="ri-checkbox-circle-line"></i>
+                Politique de mot de passe forte
+              </li>
+              <li class="check-item warning">
+                <i class="ri-error-warning-line"></i>
+                3 comptes inactifs depuis 30 jours
+              </li>
+            </ul>
+          </div>
+          <div class="scan-category">
+            <h3>
+              <i class="ri-database-2-line"></i>
+              Base de données
+              <span class="score-badge warning">78%</span>
+            </h3>
+            <ul class="check-list">
+              <li class="check-item success">
+                <i class="ri-checkbox-circle-line"></i>
+                Sauvegardes automatiques actives
+              </li>
+              <li class="check-item error">
+                <i class="ri-close-circle-line"></i>
+                Port par défaut utilisé (3306)
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <!-- SSL/TLS Certificates -->
-      <div class="resource-list mt-4">
+      <!-- Section Configuration de Sécurité -->
+      <div class="resource-list">
         <div class="resource-header">
-          <h2 class="resource-title">Certificats SSL/TLS</h2>
-          <button class="create-btn" onclick="showModal('createCertificate')">
-            <i class="ri-add-line"></i> Nouveau Certificat
-          </button>
+          <h2 class="resource-title">Configuration de Sécurité</h2>
         </div>
-        <table class="resource-table">
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Domaine</th>
-              <th>Émetteur</th>
-              <th>Expiration</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>wildcard-cert</td>
-              <td>*.example.com</td>
-              <td>Let's Encrypt</td>
-              <td>Dans 45 jours</td>
-              <td><span class="status-badge status-running">Valide</span></td>
-              <td>
-                <button class="action-btn"><i class="ri-refresh-line"></i></button>
-                <button class="action-btn"><i class="ri-download-line"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="security-settings">
+          <div class="setting-group">
+            <h3>Politique de Mot de Passe</h3>
+            <div class="setting-item">
+              <div class="setting-label">
+                <span>Longueur minimale</span>
+                <span class="setting-value">12 caractères</span>
+              </div>
+              <input type="range" min="8" max="32" value="12" class="setting-slider">
+            </div>
+            <div class="setting-item">
+              <div class="setting-label">
+                <span>Complexité requise</span>
+              </div>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" checked> Majuscules
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" checked> Chiffres
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" checked> Caractères spéciaux
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="setting-group">
+            <h3>Sessions</h3>
+            <div class="setting-item">
+              <div class="setting-label">
+                <span>Durée maximum de session</span>
+                <span class="setting-value">4 heures</span>
+              </div>
+              <select class="form-select">
+                <option>1 heure</option>
+                <option>2 heures</option>
+                <option selected>4 heures</option>
+                <option>8 heures</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <div class="setting-label">
+                <span>Verrouillage après tentatives échouées</span>
+                <span class="setting-value">3 tentatives</span>
+              </div>
+              <select class="form-select">
+                <option>3 tentatives</option>
+                <option>5 tentatives</option>
+                <option>10 tentatives</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
