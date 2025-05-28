@@ -966,6 +966,10 @@
       color: var(--danger-color);
     }
 
+    .stat-trend.neutral {
+      color: var(--text-secondary);
+    }
+
     .header-actions {
       display: flex;
       gap: 1rem;
@@ -1463,6 +1467,285 @@
         height: 60px;
       }
     }
+
+    .stat-trend {
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .stat-trend.positive {
+      color: var(--success-color);
+    }
+
+    .stat-trend.negative {
+      color: var(--danger-color);
+    }
+
+    .stat-trend.neutral {
+      color: var(--text-secondary);
+    }
+
+    /* Styles pour la section réseau */
+    .network-section {
+      background: var(--bg-secondary);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .time-range-select {
+      min-width: 200px;
+    }
+
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .network-chart-card {
+      background: var(--bg-tertiary);
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+
+    .legend-color.incoming {
+      background: var(--accent-primary);
+    }
+
+    .legend-color.outgoing {
+      background: var(--accent-secondary);
+    }
+
+    .legend-color.latency {
+      background: var(--warning-color);
+    }
+
+    .chart-container {
+      height: 200px;
+      position: relative;
+    }
+
+    .placeholder-chart {
+      width: 100%;
+      height: 100%;
+      background: var(--bg-secondary);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart-overlay {
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .chart-overlay i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .network-section {
+        padding: 1rem;
+      }
+
+      .section-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .header-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .time-range-select {
+        width: 100%;
+      }
+
+      .network-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .network-interfaces {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .interface-card {
+      background: var(--bg-tertiary);
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    .interface-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .interface-info h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .interface-status {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .interface-status.active {
+      color: var(--success-color);
+    }
+
+    .interface-status.inactive {
+      color: var(--danger-color);
+    }
+
+    .interface-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .interface-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 0.5rem;
+    }
+
+    .detail-group {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .detail-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .detail-value {
+      font-family: monospace;
+      font-size: 0.875rem;
+    }
+
+    .interface-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-label {
+      display: block;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .interface-details {
+        grid-template-columns: 1fr;
+      }
+
+      .interface-stats {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .stat-item {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .network-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .network-table th,
+    .network-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .network-table th {
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: var(--bg-tertiary);
+    }
+
+    .network-table tr:hover {
+      background: var(--bg-tertiary);
+    }
+
+    @media (max-width: 768px) {
+      .network-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1727,6 +2010,264 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <div id="network-content" class="tab-content">
+      <!-- Vue d'ensemble du réseau -->
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <h3>Trafic Entrant</h3>
+          <div class="stat-value">1.2 GB/s</div>
+          <div class="stat-trend positive">
+            <i class="ri-arrow-up-line"></i> +5% vs moyenne
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3>Trafic Sortant</h3>
+          <div class="stat-value">800 MB/s</div>
+          <div class="stat-trend negative">
+            <i class="ri-arrow-down-line"></i> -3% vs moyenne
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3>Latence Moyenne</h3>
+          <div class="stat-value">24ms</div>
+          <div class="stat-badge status-running">Excellent</div>
+        </div>
+        <div class="stat-card">
+          <h3>Connexions Actives</h3>
+          <div class="stat-value">1,284</div>
+          <div class="stat-trend neutral">Stable</div>
+        </div>
+      </div>
+
+      <!-- Monitoring Réseau -->
+      <div class="network-section">
+        <div class="section-header">
+          <h2>Monitoring Réseau</h2>
+          <div class="header-actions">
+            <select class="form-select time-range-select">
+              <option>Dernière heure</option>
+              <option selected>Dernières 24h</option>
+              <option>7 derniers jours</option>
+              <option>30 derniers jours</option>
+            </select>
+            <button class="secondary-btn">
+              <i class="ri-download-line"></i> Exporter
+            </button>
+          </div>
+        </div>
+        <div class="network-grid">
+          <!-- Graphique de Bande Passante -->
+          <div class="network-chart-card">
+            <div class="chart-header">
+              <h3>Utilisation de la Bande Passante</h3>
+              <div class="chart-legend">
+                <span class="legend-item">
+                  <span class="legend-color incoming"></span>
+                  Entrant
+                </span>
+                <span class="legend-item">
+                  <span class="legend-color outgoing"></span>
+                  Sortant
+                </span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="placeholder-chart">
+                <div class="chart-overlay">
+                  <i class="ri-line-chart-line"></i>
+                  Graphique de bande passante
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphique de Latence -->
+          <div class="network-chart-card">
+            <div class="chart-header">
+              <h3>Latence</h3>
+              <div class="chart-legend">
+                <span class="legend-item">
+                  <span class="legend-color latency"></span>
+                  Temps de réponse
+                </span>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="placeholder-chart">
+                <div class="chart-overlay">
+                  <i class="ri-pulse-line"></i>
+                  Graphique de latence
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuration Réseau -->
+      <div class="network-section">
+        <div class="section-header">
+          <h2>Configuration Réseau</h2>
+          <button class="create-btn">
+            <i class="ri-add-line"></i> Nouvelle Interface
+          </button>
+        </div>
+        <div class="network-interfaces">
+          <!-- Interface Principale -->
+          <div class="interface-card">
+            <div class="interface-header">
+              <div class="interface-info">
+                <h3>eth0 - Interface Principale</h3>
+                <span class="interface-status active">
+                  <i class="ri-checkbox-circle-line"></i> Actif
+                </span>
+              </div>
+              <div class="interface-actions">
+                <button class="action-btn" data-tooltip="Configurer">
+                  <i class="ri-settings-3-line"></i>
+                </button>
+                <button class="action-btn" data-tooltip="Redémarrer">
+                  <i class="ri-restart-line"></i>
+                </button>
+              </div>
+            </div>
+            <div class="interface-details">
+              <div class="detail-group">
+                <div class="detail-item">
+                  <span class="detail-label">Adresse IP</span>
+                  <span class="detail-value">192.168.1.100</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Masque</span>
+                  <span class="detail-value">255.255.255.0</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Passerelle</span>
+                  <span class="detail-value">192.168.1.1</span>
+                </div>
+              </div>
+              <div class="detail-group">
+                <div class="detail-item">
+                  <span class="detail-label">DNS Primaire</span>
+                  <span class="detail-value">8.8.8.8</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">DNS Secondaire</span>
+                  <span class="detail-value">8.8.4.4</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">MAC</span>
+                  <span class="detail-value">00:1B:44:11:3A:B7</span>
+                </div>
+              </div>
+            </div>
+            <div class="interface-stats">
+              <div class="stat-item">
+                <span class="stat-label">Paquets Reçus</span>
+                <span class="stat-value">1.2M</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Paquets Envoyés</span>
+                <span class="stat-value">890K</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Erreurs</span>
+                <span class="stat-value">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interface VPN -->
+          <div class="interface-card">
+            <div class="interface-header">
+              <div class="interface-info">
+                <h3>tun0 - VPN</h3>
+                <span class="interface-status inactive">
+                  <i class="ri-close-circle-line"></i> Inactif
+                </span>
+              </div>
+              <div class="interface-actions">
+                <button class="action-btn" data-tooltip="Démarrer">
+                  <i class="ri-play-line"></i>
+                </button>
+                <button class="action-btn" data-tooltip="Configurer">
+                  <i class="ri-settings-3-line"></i>
+                </button>
+              </div>
+            </div>
+            <div class="interface-details">
+              <div class="detail-group">
+                <div class="detail-item">
+                  <span class="detail-label">Type</span>
+                  <span class="detail-value">OpenVPN</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Remote</span>
+                  <span class="detail-value">vpn.example.com:1194</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table de Routage -->
+      <div class="network-section">
+        <div class="section-header">
+          <h2>Table de Routage</h2>
+          <button class="create-btn">
+            <i class="ri-add-line"></i> Nouvelle Route
+          </button>
+        </div>
+        <div class="table-responsive">
+          <table class="network-table">
+            <thead>
+              <tr>
+                <th>Destination</th>
+                <th>Passerelle</th>
+                <th>Masque</th>
+                <th>Interface</th>
+                <th>Métrique</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.0.0.0</td>
+                <td>192.168.1.1</td>
+                <td>0.0.0.0</td>
+                <td>eth0</td>
+                <td>100</td>
+                <td>
+                  <button class="action-btn" data-tooltip="Modifier">
+                    <i class="ri-edit-line"></i>
+                  </button>
+                  <button class="action-btn" data-tooltip="Supprimer">
+                    <i class="ri-delete-bin-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>192.168.1.0</td>
+                <td>0.0.0.0</td>
+                <td>255.255.255.0</td>
+                <td>eth0</td>
+                <td>0</td>
+                <td>
+                  <button class="action-btn" data-tooltip="Modifier">
+                    <i class="ri-edit-line"></i>
+                  </button>
+                  <button class="action-btn" data-tooltip="Supprimer">
+                    <i class="ri-delete-bin-line"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
