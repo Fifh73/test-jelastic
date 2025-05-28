@@ -725,44 +725,54 @@
     @media (max-width: 1024px) {
       .mobile-nav-toggle {
         display: block;
+        padding: 0.75rem;
+        font-size: 1.5rem;
       }
 
       .sidebar {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 999;
-      }
-
-      .sidebar.active {
-        transform: translateX(0);
+        width: 85%;
+        max-width: 320px;
       }
 
       .main-content {
         margin-left: 0;
-        padding: 1rem;
+        padding: 1.5rem;
       }
 
       .header {
-        margin-left: 3rem;
-        margin-bottom: 1.5rem;
+        margin-left: 3.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .header h1 {
+        font-size: 1.75rem;
       }
 
       /* Ajustement de la grille pour mobile */
       .dashboard-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
+        gap: 1.25rem;
+        margin-bottom: 2rem;
       }
 
       .stat-card {
-        padding: 1.25rem;
+        padding: 1.5rem;
+      }
+
+      .stat-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .stat-value {
+        font-size: 1.75rem;
       }
 
       /* Ajustement des tableaux pour mobile */
       .resource-header {
         flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
+        gap: 1.25rem;
+        padding: 1.5rem;
       }
 
       .search-container {
@@ -771,97 +781,155 @@
 
       .search-input {
         max-width: 100%;
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
       }
 
       .create-btn {
         width: 100%;
-      }
-
-      .resource-table {
-        font-size: 0.875rem;
-      }
-
-      .resource-table th,
-      .resource-table td {
-        padding: 0.75rem;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
       }
 
       /* Optimisation des actions pour mobile */
       .action-btn {
-        padding: 0.5rem;
+        padding: 0.75rem;
+        font-size: 1.25rem;
       }
 
       /* Ajustement des modales pour mobile */
       .modal-content {
         width: 95%;
-        margin: 1rem;
-        max-height: 90vh;
-        padding: 1.25rem;
+        padding: 1.5rem;
       }
 
-      .form-group {
-        margin-bottom: 1rem;
+      .modal-title {
+        font-size: 1.5rem;
+      }
+
+      .form-label {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .form-input,
+      .form-select {
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
       }
 
       /* Ajustement de la pagination pour mobile */
       .pagination {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
+        padding: 1.25rem;
       }
 
       .pagination-btn {
-        padding: 0.5rem 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
       }
     }
 
-    /* Styles pour très petits écrans */
+    /* Styles pour les tableaux responsifs */
+    @media (max-width: 768px) {
+      .resource-table tr {
+        margin-bottom: 1.25rem;
+        padding: 0.5rem;
+      }
+
+      .resource-table td {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+      }
+
+      .resource-table td::before {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .status-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 1rem;
+      }
+
+      /* Navigation latérale sur mobile */
+      .sidebar {
+        padding: 2rem 1.5rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .nav-item {
+        padding: 1rem 1.25rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .nav-item i {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Ajustements pour très petits écrans */
     @media (max-width: 480px) {
+      .main-content {
+        padding: 1.25rem;
+      }
+
       .header h1 {
         font-size: 1.5rem;
       }
 
       .stat-card {
-        padding: 1rem;
+        padding: 1.25rem;
       }
 
       .stat-card h3 {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
       }
 
       .stat-value {
-        font-size: 1.25rem;
-      }
-
-      .resource-table {
-        font-size: 0.75rem;
-      }
-
-      .modal-content {
-        padding: 1rem;
-      }
-
-      /* Optimisation des actions pour très petits écrans */
-      .action-btn {
-        padding: 0.4rem;
-      }
-
-      .action-btn i {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
 
       .resource-table td {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+
+      .action-btn {
         padding: 0.625rem;
-        font-size: 0.875rem;
+        font-size: 1.125rem;
       }
 
-      .resource-table td::before {
-        font-size: 0.875rem;
+      .modal-content {
+        padding: 1.25rem;
       }
 
-      .status-badge {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.75rem;
+      .form-input,
+      .form-select {
+        padding: 0.75rem 1rem;
+      }
+    }
+
+    /* Styles pour les notifications */
+    .notification {
+      font-size: 1rem;
+      padding: 1rem 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .notification {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        bottom: 1rem;
+        font-size: 1.1rem;
+        padding: 1.25rem;
+        text-align: center;
       }
     }
 
