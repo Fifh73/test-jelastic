@@ -1192,6 +1192,277 @@
         flex-direction: column;
       }
     }
+
+    /* Styles pour l'onglet paramètres */
+    .settings-section {
+      background: var(--bg-secondary);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .settings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .profile-avatar {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .edit-avatar-btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: var(--accent-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .profile-info h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .profile-role {
+      color: var(--text-secondary);
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .secondary-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .settings-card {
+      background: var(--bg-tertiary);
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .settings-card-header {
+      background: var(--bg-secondary);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .settings-card-header i {
+      font-size: 1.25rem;
+      color: var(--accent-primary);
+    }
+
+    .settings-card-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .settings-card-content {
+      padding: 1rem;
+    }
+
+    .theme-selector {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .theme-btn {
+      flex: 1;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .theme-btn.active {
+      background: var(--accent-primary);
+      color: white;
+      border-color: var(--accent-primary);
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--bg-tertiary);
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--accent-primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .integration-card {
+      background: var(--bg-tertiary);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .integration-card img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .integration-info {
+      flex: 1;
+    }
+
+    .integration-info h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .integration-info p {
+      margin: 0.25rem 0 0 0;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .integration-status {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .integration-status.connected {
+      color: var(--success-color);
+    }
+
+    @media (max-width: 768px) {
+      .settings-section {
+        padding: 1rem;
+      }
+
+      .settings-header {
+        flex-direction: column;
+      }
+
+      .user-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .profile-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .secondary-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .theme-selector {
+        flex-direction: column;
+      }
+
+      .theme-btn {
+        width: 100%;
+      }
+
+      .integration-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .integration-card img {
+        width: 60px;
+        height: 60px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1653,6 +1924,259 @@
                 <option>10 tentatives</option>
               </select>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings-content" class="tab-content">
+      <!-- Profil Utilisateur -->
+      <div class="settings-section">
+        <div class="settings-header">
+          <h2>Profil Utilisateur</h2>
+          <div class="user-profile">
+            <div class="profile-avatar">
+              <img src="https://ui-avatars.com/api/?name=Admin+User&background=2563eb&color=fff" alt="Photo de profil">
+              <button class="edit-avatar-btn">
+                <i class="ri-camera-line"></i>
+              </button>
+            </div>
+            <div class="profile-info">
+              <h3>Admin User</h3>
+              <span class="profile-role">Administrateur Système</span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="secondary-btn">
+              <i class="ri-edit-line"></i> Modifier le profil
+            </button>
+            <button class="secondary-btn">
+              <i class="ri-key-line"></i> Changer le mot de passe
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paramètres Généraux -->
+      <div class="settings-section">
+        <h2>Paramètres Généraux</h2>
+        <div class="settings-grid">
+          <!-- Apparence -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <i class="ri-palette-line"></i>
+              <h3>Apparence</h3>
+            </div>
+            <div class="settings-card-content">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Thème</span>
+                  <span class="setting-value">Clair</span>
+                </div>
+                <div class="theme-selector">
+                  <button class="theme-btn active" data-theme="light">
+                    <i class="ri-sun-line"></i>
+                    Clair
+                  </button>
+                  <button class="theme-btn" data-theme="dark">
+                    <i class="ri-moon-line"></i>
+                    Sombre
+                  </button>
+                  <button class="theme-btn" data-theme="system">
+                    <i class="ri-computer-line"></i>
+                    Système
+                  </button>
+                </div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Densité d'affichage</span>
+                </div>
+                <select class="form-select">
+                  <option>Compacte</option>
+                  <option selected>Standard</option>
+                  <option>Confortable</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Animations</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Langue et Région -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <i class="ri-global-line"></i>
+              <h3>Langue et Région</h3>
+            </div>
+            <div class="settings-card-content">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Langue</span>
+                </div>
+                <select class="form-select">
+                  <option selected>Français</option>
+                  <option>English</option>
+                  <option>Deutsch</option>
+                  <option>Español</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Format de date</span>
+                </div>
+                <select class="form-select">
+                  <option selected>DD/MM/YYYY</option>
+                  <option>MM/DD/YYYY</option>
+                  <option>YYYY-MM-DD</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Fuseau horaire</span>
+                </div>
+                <select class="form-select">
+                  <option selected>Europe/Paris (UTC+01:00)</option>
+                  <option>UTC</option>
+                  <option>America/New_York (UTC-05:00)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <i class="ri-notification-4-line"></i>
+              <h3>Notifications</h3>
+            </div>
+            <div class="settings-card-content">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Alertes de sécurité</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Mises à jour système</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Rapports hebdomadaires</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Canal de notification</span>
+                </div>
+                <div class="checkbox-group">
+                  <label class="checkbox-label">
+                    <input type="checkbox" checked> Email
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" checked> Application
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox"> SMS
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sauvegardes -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <i class="ri-save-line"></i>
+              <h3>Sauvegardes</h3>
+            </div>
+            <div class="settings-card-content">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Sauvegardes automatiques</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Fréquence</span>
+                </div>
+                <select class="form-select">
+                  <option>Toutes les 6 heures</option>
+                  <option selected>Toutes les 12 heures</option>
+                  <option>Quotidienne</option>
+                  <option>Hebdomadaire</option>
+                </select>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Rétention</span>
+                </div>
+                <select class="form-select">
+                  <option>7 jours</option>
+                  <option selected>30 jours</option>
+                  <option>90 jours</option>
+                  <option>365 jours</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- API et Intégrations -->
+      <div class="settings-section">
+        <div class="settings-header">
+          <h2>API et Intégrations</h2>
+          <button class="create-btn">
+            <i class="ri-add-line"></i> Nouvelle intégration
+          </button>
+        </div>
+        <div class="integrations-grid">
+          <div class="integration-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack">
+            <div class="integration-info">
+              <h4>Slack</h4>
+              <p>Notifications et alertes</p>
+              <span class="integration-status connected">Connecté</span>
+            </div>
+            <button class="action-btn" data-tooltip="Configurer">
+              <i class="ri-settings-3-line"></i>
+            </button>
+          </div>
+          <div class="integration-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+            <div class="integration-info">
+              <h4>GitHub</h4>
+              <p>Déploiements et CI/CD</p>
+              <span class="integration-status">Non connecté</span>
+            </div>
+            <button class="action-btn" data-tooltip="Connecter">
+              <i class="ri-link"></i>
+            </button>
           </div>
         </div>
       </div>
